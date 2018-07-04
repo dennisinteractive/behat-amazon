@@ -1,62 +1,17 @@
 <?php
 namespace DennisDigital\Behat\Amazon\Context;
 
-use Drupal\DrupalExtension\Context\DrupalAwareInterface;
-use Drupal\DrupalDriverManager;
-use Behat\Testwork\Hook\HookDispatcher;
 use Behat\Gherkin\Node\TableNode;
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 /**
  * AmazonContext
  */
-class AmazonContext implements DrupalAwareInterface {
+class AmazonContext extends RawDrupalContext {
   /**
    * @var array Amazon items.
    */
   protected $items = array();
-
-  /**
-   * @var DrupalDriverManager
-   */
-  protected $drupal;
-
-  /**
-   * @var HookDispatcher
-   */
-  protected $dispatcher;
-
-  /**
-   * @var array
-   */
-  protected $parameters = array();
-
-  /**
-   * @inheritDoc
-   */
-  public function setDrupal(DrupalDriverManager $drupal) {
-    $this->drupal = $drupal;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function setDispatcher(HookDispatcher $dispatcher) {
-    $this->dispatcher = $dispatcher;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function getDrupal() {
-    return $this->drupal;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function setDrupalParameters(array $parameters) {
-    $this->parameters = $parameters;
-  }
 
   /**
    * @Given I have Amazon items:
